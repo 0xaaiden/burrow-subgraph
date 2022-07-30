@@ -1,0 +1,34 @@
+type Deposit @entity {
+  id: ID!
+  signerId: String!
+  asset: String!
+  amount: BigInt!
+  timestamp: BigInt!
+}
+
+type Withdraw @entity {
+  id: ID!
+  signerId: String!
+  asset: String!
+  amount: BigInt!
+  timestamp: BigInt!
+}
+
+type Liquidate @entity {
+  id: ID!
+  signerId: String!
+  liquidatedId: String!
+  collateralSum: BigDecimal!
+  repaidSum: BigDecimal!
+  timestamp: BigInt!
+}
+
+type DailySnapshotUpdate @entity {
+  id: ID!
+  timestamp: BigInt!
+  totalDeposits: BigInt!
+  totalWithdraws: BigInt!
+  totalBorrows: BigInt!
+  totalLiquidate: BigDecimal!
+  
+}

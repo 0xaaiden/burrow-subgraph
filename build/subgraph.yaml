@@ -1,0 +1,22 @@
+specVersion: 0.0.4
+description: DID registry
+repository: https://github.com/VitalPointAI/near-subgraph-template.git
+schema:
+  file: schema.graphql
+dataSources:
+  - kind: near
+    name: receipts
+    network: near-mainnet
+    source:
+      account: contract.main.burrow.near
+      startBlock: 62586834
+    mapping:
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      file: receipts/receipts.wasm
+      entities:
+        - Deposit
+        - Withdraw
+        - Liquidate
+      receiptHandlers:
+        - handler: handleReceipt
